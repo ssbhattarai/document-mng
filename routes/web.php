@@ -23,6 +23,19 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::group(['prefix' => 'admin','as' => 'admin.', 'middleware' => 'isadmin'], function(){
         Route::resource('pages', 'AdminController');
+        Route::resource('users', 'UserController');
+
     });
 
 });
+
+// Route::resource('admin/users', 'UserController');
+
+
+
+// Route::inertia('/about', 'AboutComponent'); //thisroute doesnot need any controller
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
