@@ -1,31 +1,7 @@
 <template>
+<layout>
 <div class="content-wrapper">
-              <!-- <div class="row" id="proBanner">
-                <div class="col-12">
-                  <span class="d-flex align-items-center purchase-popup">
-                    <p>Get tons of UI components, Plugins, multiple layouts, 20+ sample pages, and more!</p>
-                    <a href="https://www.bootstrapdash.com/product/purple-bootstrap-admin-template?utm_source=organic&utm_medium=banner&utm_campaign=free-preview" target="_blank" class="btn download-button purchase-button ml-auto">Upgrade To Pro</a>
-                    <i class="mdi mdi-close" id="bannerClose"></i>
-                  </span>
-                </div>
-              </div> -->
-              <!-- <div class="page-header">
-                <h3 class="page-title">
-                  <span class="page-title-icon bg-gradient-primary text-white mr-2">
-                    <i class="mdi mdi-account-multiple"></i>
-                  </span> Users
-                </h3>
-                <nav aria-label="breadcrumb">
-                  <ul class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page">
-                      <span></span>Lists &nbsp; <i class="mdi mdi-format-list-numbered icon-sm text-primary align-middle"></i>
-                    </li>
-                  </ul>
-                </nav>
-              </div> -->
-              <!-- <div> -->
-
-                  <div class="col-lg-12 grid-margin stretch-card">
+                <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">
@@ -69,21 +45,31 @@
               </div>
             </div>
 </div>
+</layout>
 </template>
 
 <script>
-import Inertia from '@inertiajs/inertia-vue';
+import Layout from '../Layouts/Layout';
+
+import { Inertia } from '@inertiajs/inertia'
+
 export default {
+
     props: ['users'],
-    beforeMount() {
-        this.$inertia.on('start', () => NProgress.start())
+   components: {
+       Layout
+   },
+   beforeMount () {
 
-    },
-    mounted() {
-       this.$inertia.on('finish', () => NProgress.done())
+       Inertia.on('start', () => NProgress.start())
+   },
+   mounted() {
 
 
-    }
+        Inertia.on('finish', (event) => {
+            NProgress.done()
+        })
+   }
 }
 </script>
 

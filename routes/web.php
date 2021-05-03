@@ -14,16 +14,16 @@
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function(){
-    Route::get('/', function () {
-        return view('welcome');
-    });
+
+   Route::inertia('/', 'Dashboard/Index');
+
+    Route::resource('users', 'UserController');
 
     Route::group(['prefix' => 'admin','as' => 'admin.', 'middleware' => 'isadmin'], function(){
         Route::resource('pages', 'AdminController');
-        Route::resource('users', 'UserController');
 
     });
 

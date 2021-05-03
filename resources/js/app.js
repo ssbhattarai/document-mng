@@ -29,24 +29,44 @@ Vue.component('example-component', require('./Pages/ExampleComponent.vue').defau
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
- import { App, plugin } from '@inertiajs/inertia-vue'
- import Vue from 'vue'
+//  import { App, plugin } from '@inertiajs/inertia-vue'
+//  import Vue from 'vue'
 
- Vue.use(plugin)
- import { InertiaProgress } from '@inertiajs/progress'
+//  Vue.use(plugin)
+//  import { InertiaProgress } from '@inertiajs/progress'
 
-InertiaProgress.init()
+// InertiaProgress.init()
 
- const el = document.getElementById('app')
- const pages = {
-    'Users/Index': require('./Pages/Users/Index.vue').default,
-  }
- new Vue({
-   render: h => h(App, {
-     props: {
-       initialPage: JSON.parse(el.dataset.page),
-    //    resolveComponent: name => require(`./Pages/${name}`).default,
-    resolveComponent: name => pages[name],
-     },
-   }),
- }).$mount(el)
+//  const el = document.getElementById('app')
+//  const pages = {
+//     'Users/Index': require('./Pages/Users/Index.vue').default,
+//     'Dashboard/Index': require('./Pages/Dashboard/index.vue').default,
+//   }
+//  new Vue({
+//    render: h => h(App, {
+//      props: {
+//        initialPage: JSON.parse(el.dataset.page),
+//     //    resolveComponent: name => require(`./Pages/${name}`).default,
+//     resolveComponent: name => pages[name],
+//      },
+//    }),
+//  }).$mount(el)
+
+
+import { App, plugin } from '@inertiajs/inertia-vue'
+import Vue from 'vue'
+
+
+
+Vue.use(plugin)
+
+const el = document.getElementById('app')
+
+new Vue({
+  render: h => h(App, {
+    props: {
+      initialPage: JSON.parse(el.dataset.page),
+      resolveComponent: name => require(`./Pages/${name}`).default,
+    },
+  }),
+}).$mount(el)

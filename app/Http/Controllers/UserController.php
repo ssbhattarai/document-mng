@@ -21,18 +21,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        // return Inertia::render('Users/Index', [
-        //     'users' => User::all()->map(function ($user) {
-        //         return [
-        //             'id' => $user->id,
-        //             'name' => $user->name,
-        //             'email' => $user->email,
-        //             'edit_url' => URL::route('users.edit', $user),
-        //         ];
-        //     }),
-        //     'create_url' => URL::route('users.create'),
-        // ]);
+        $users = User::orderBy('created_at', 'DESC')->get();
 
         return Inertia::render('Users/Index', ['users' => $users]);
     }
