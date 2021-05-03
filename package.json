@@ -28,6 +28,8 @@
         "@inertiajs/inertia": "^0.8.7",
         "@inertiajs/inertia-vue": "^0.5.12",
         "@inertiajs/progress": "^0.2.4",
-        "nprogress": "^0.2.0"
+        "nprogress": "^0.2.0",
+        "vue-meta": "^2.4.0",
+        "ziggy": "^2.4.0"
     }
 }

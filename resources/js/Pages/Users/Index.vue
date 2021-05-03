@@ -54,7 +54,14 @@ import Layout from '../Layouts/Layout';
 import { Inertia } from '@inertiajs/inertia'
 
 export default {
-
+    metaInfo: {
+      title: 'Users List',
+      titleTemplate: '%s - Document Management',
+      htmlAttrs: {
+        lang: 'en',
+        amp: true
+      }
+    },
     props: ['users'],
    components: {
        Layout

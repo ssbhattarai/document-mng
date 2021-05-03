@@ -21,8 +21,8 @@
             <i class="mdi mdi-home menu-icon"></i>
         </inertia-link>
       </li>
-      <li class="nav-item">
-            <inertia-link href="/users" class="nav-link">
+      <li class="nav-item" v-if="user.is_admin">
+            <inertia-link href="/admin/users" :class="[currentRoute==='admin.users.index' ? activeClass : '', 'nav-link']">
                 <span class="menu-title">Users</span>
                 <i class="mdi mdi-account-multiple menu-icon"></i>
             </inertia-link>
@@ -104,10 +104,14 @@
 
 <script>
 export default {
-
+    computed: {
+      user() {
+        return this.$page.props.auth.user
+      },
+      currentRoute() {
+          return route().current()
+      }
+    },
 }
 </script>
 
-<style>
-
-</style>

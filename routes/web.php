@@ -20,10 +20,9 @@ Route::group(['middleware' => 'auth'], function(){
 
    Route::inertia('/', 'Dashboard/Index');
 
-    Route::resource('users', 'UserController');
 
-    Route::group(['prefix' => 'admin','as' => 'admin.', 'middleware' => 'isadmin'], function(){
-        Route::resource('pages', 'AdminController');
+   Route::group(['prefix' => 'admin','as' => 'admin.', 'middleware' => 'isadmin'], function(){
+        Route::resource('users', 'UserController');
 
     });
 

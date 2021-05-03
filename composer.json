@@ -10,9 +10,11 @@
     "require": {
         "php": "^7.2.5|^8.0",
         "fideloper/proxy": "^4.4",
+        "fruitcake/laravel-cors": "^2.0",
         "inertiajs/inertia-laravel": "^0.4.1",
         "laravel/framework": "^6.20",
-        "laravel/tinker": "^2.5"
+        "laravel/tinker": "^2.5",
+        "tightenco/ziggy": "^1.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",

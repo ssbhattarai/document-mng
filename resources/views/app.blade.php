@@ -15,16 +15,18 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}" />
-    <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
 <body>
-            @inertia
+    @routes
+    @inertia
 
-      <!-- container-scroller -->
-      <!-- plugins:js -->
-      <script src="assets/vendors/js/vendor.bundle.base.js"></script>
-      <!-- endinject -->
-      <!-- Plugin js for this page -->
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    {{-- <script src="assets/vendors/js/vendor.bundle.base.js"></script> --}}
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+        <script src="{{ mix('js/app.js') }}" defer></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
       <script src="{{ asset('assets/vendors/chart.js/Chart.min.js') }}"></script>
       <!-- End plugin js for this page -->
       <!-- inject:js -->
